@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="User Entered Import Resolution" name="https://w3id.org/Fuzzy_Trace_Theory" uri="Fuzzy_Trace_Theory.ttl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/FTT" uri="FTT.ttl"/>
+    <uri id="Imports Wizard Entry" name="https://w3id.org/SPI_Model" uri="SPI_Model.ttl"/>
+    <uri id="Imports Wizard Entry" name="https://w3id.org/Early_Decomposition_Model" uri="Early_Decomposition_Model.ttl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/TBRS_Model" uri="TBRS_Model.ttl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/SPI_Model" uri="SPI_Model_obj_properties.ttl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/Multicomponent_Model" uri="Multicomponent_Model.ttl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/Modal_Model" uri="Modal_Model.ttl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/MNESIS_Model" uri="MNESIS_Model.ttl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/Late_Decomposition_Model" uri="Late_Decomposition_Model.ttl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/FTT_Model" uri="FTT_Model.ttl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/Embedded-Processes_Model" uri="Embedded-Processes_Model.ttl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/Autobiographical_Memory_Model" uri="Autobiographical_Memory_Model.ttl"/>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base=""/>
+</catalog>

@@ -1,0 +1,406 @@
+@prefix : <https://w3id.org/MemOnto#> .
+@prefix anc: <http://www.semanticweb.org/cognitive-ontologies/core#anc:> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix anc1: <https://gitlab.com/ccns/neurocog/neurodataops/anc/classification/cognitive-ontology/-/raw/main/core.owl#anc:> .
+@prefix core: <http://www.semanticweb.org/cognitive-ontologies/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix core1: <https://gitlab.com/ccns/neurocog/neurodataops/anc/classification/cognitive-ontology/-/raw/main/core.owl#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@base <https://w3id.org/MemOnto#> .
+
+<https://w3id.org/Autobiographical_Memory_Model> rdf:type owl:Ontology ;
+                                                  owl:versionIRI <https://w3id.org/Autobiographical_Memory_Model> ;
+                                                  <http://purl.org/dc/elements/1.1/license> "https://creativecommons.org/licenses/by/3.0/"^^rdfs:Literal ;
+                                                  terms:title "Autobiographical_Memory_Model"^^rdfs:Literal ;
+                                                  rdfs:comment "The Model of Autobiographical Memory assumes that memories are transitory mental constructions within a self-memory system (SMS)."^^rdfs:Literal .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/license
+<http://purl.org/dc/elements/1.1/license> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/alternative
+terms:alternative rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/bibliographicCitation
+terms:bibliographicCitation rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/created
+terms:created rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+terms:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+terms:title rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+skos:definition rdf:type owl:AnnotationProperty .
+
+
+###  https://w3id.org/MemOnto#isCreatedBy
+:isCreatedBy rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+
+###  https://w3id.org/MemOnto#activates
+:activates rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/MemOnto#controls
+:controls rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/MemOnto#defines
+:defines rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/MemOnto#experiencedAs
+:experiencedAs rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/MemOnto#isDefinedBy
+:isDefinedBy rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/MemOnto#Actual_Self
+:Actual_Self rdf:type owl:Class ;
+             rdfs:label "Actual Self"@en ;
+             skos:prefLabel "Actual Self"@en ; 
+             skos:altLabel "Real Self"@en ; 
+             skos:altLabel "True Self"@en ; 
+             rdfs:subClassOf :Self ;
+             skos:definition "\"The real self or true self as it exists at a particular point in time, as opposed to an idealized, grandiose, or otherwise distorted self.\", APA Dictionary of Psychology" ;
+             terms:bibliographicCitation "Conway, M. A., & Pleydell-Pearce, C. W. (2000). The construction of autobiographical memories in the self-memory system. Psychological review, 107(2), 261–288. https://doi.org/10.1037/0033-295x.107.2.261" ;
+             rdfs:comment "\"Some approximately accurate representation of one's self, perhaps, even the system's mental model of itself).\" (Conway, M. A., & Pleydell-Pearce, C. W. (2000))" .
+
+
+###  https://w3id.org/MemOnto#Author
+:Author rdf:type owl:Class .
+
+
+###  https://w3id.org/MemOnto#Autobiographical_Knowledge
+:Autobiographical_Knowledge rdf:type owl:Class ;
+                            rdfs:label "Autobiographical Knowledge"@en ;
+                            skos:prefLabel "Autobiographical Knowledge"@en ; 
+                            rdfs:subClassOf :Memory_Representation ;
+                            terms:bibliographicCitation "Conway, M. A., & Pleydell-Pearce, C. W. (2000). The construction of autobiographical memories in the self-memory system. Psychological review, 107(2), 261–288. https://doi.org/10.1037/0033-295x.107.2.261" ;
+                            rdfs:comment "\"One striking feature of autobiographical memories is that they always contain knowledge at different levels of specificity. In our work [...] three broad levels of specificity have been identified: lifetime periods, general events, and event-specific knowledge (ESK).\" (Conway, M. A., & Pleydell-Pearce, C. W. (2000))" .
+
+
+###  https://w3id.org/MemOnto#Autobiographical_Knowledge_Base
+:Autobiographical_Knowledge_Base rdf:type owl:Class ;
+                                 rdfs:label "Autobiographical Knowledge Base"@en ;
+                                 skos:prefLabel "Autobiographical Knowledge Base"@en ; 
+                                 rdfs:subClassOf :Cognitive_Memory_System ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :activates ;
+                                   owl:someValuesFrom :Working_Self_Current_Goal
+                                 ] ;
+                                 skos:definition "\"Hierarchical structure of autobiographical knowledge at different levels of specificity, from the most general to the most specific (life periods, general events, event-specific knowledge).\", Cognitive psychology of human memory (CogMemo thesaurus)" ;
+                                 skos:altLabel "AKB"@en ;
+                                 terms:bibliographicCitation "Conway, M. A., & Pleydell-Pearce, C. W. (2000). The construction of autobiographical memories in the self-memory system. Psychological review, 107(2), 261–288. https://doi.org/10.1037/0033-295x.107.2.261" ;
+                                 rdfs:comment "\"Three broad areas of autobiographical knowledge have been identified; lifetime periods, general events, and ESK.\" (Conway, M. A., & Pleydell-Pearce, C. W. (2000))" .
+
+
+###  https://w3id.org/MemOnto#Autobiographical_Memory_Model
+:Autobiographical_Memory_Model rdf:type owl:Class ;
+                               rdfs:label "Autobiographical Memory Model"@en ;
+                               skos:prefLabel "Autobiographical Memory Model"@en ; 
+                               rdfs:subClassOf :Memory_Model ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :defines ;
+                                 owl:someValuesFrom :Autobiographical_Knowledge
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :defines ;
+                                 owl:someValuesFrom :Autobiographical_Knowledge_Base
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :defines ;
+                                 owl:someValuesFrom :Event-Specific_Knowledge
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :defines ;
+                                 owl:someValuesFrom :Lifetime_Period
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :defines ;
+                                 owl:someValuesFrom :Self-Memory_System
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :defines ;
+                                 owl:someValuesFrom :Transitory_Mental_Construction
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :defines ;
+                                 owl:someValuesFrom :Working_Self_Current_Goal
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :defines ;
+                                 owl:someValuesFrom :Working_Self_Goal
+                               ] ;
+                               terms:bibliographicCitation "Conway, M. A., & Pleydell-Pearce, C. W. (2000). The construction of autobiographical memories in the self-memory system. Psychological review, 107(2), 261–288. https://doi.org/10.1037/0033-295x.107.2.261" ;
+                               terms:created "2000-01-01T01:01:01"^^xsd:dateTime ;
+                               :isCreatedBy :Conway ,
+                                            :Pleydell-Pearce .
+
+
+###  https://w3id.org/MemOnto#Cognitive_Memory_System
+:Cognitive_Memory_System rdf:type owl:Class .
+
+
+###  https://w3id.org/MemOnto#Control_Process
+:Control_Process rdf:type owl:Class ;
+                 rdfs:label "Control Process"@en ;
+                 skos:prefLabel "Control Process"@en ; 
+                 rdfs:subClassOf :Memory_Process ,
+                 [ rdf:type owl:Restriction ;
+                   owl:onProperty :controls ;
+                   owl:someValuesFrom :Autobiographical_Knowledge_Base
+                 ] ;
+                 skos:definition "\"Those processes that organize the flow of information in an information-processing system.\", APA Dictionary of Psychology" ;
+                 terms:bibliographicCitation "Conway, M. A., & Pleydell-Pearce, C. W. (2000). The construction of autobiographical memories in the self-memory system. Psychological review, 107(2), 261–288. https://doi.org/10.1037/0033-295x.107.2.261" ;
+                 rdfs:comment "\"Control processes modulate access to the knowledge base by successively shaping cues used to activate autobiographical memory knowledge structures and, in this way, form specific memories.\" (Conway, M. A., & Pleydell-Pearce, C. W. (2000))" .
+
+
+###  https://w3id.org/MemOnto#Working_Self
+:Working_Self rdfs:subClassOf :Control_Process ,
+              [ rdf:type owl:Restriction ;
+                owl:onProperty :controls ;
+                owl:someValuesFrom :Working_Memory
+              ] ,
+              [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                       owl:onProperty :fromConcept ;
+                                       owl:someValuesFrom :Working_Memory
+                                     ]
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :fromModel ;
+                                       owl:someValuesFrom :Multicomponent_Model
+                                     ]
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasChangeType ;
+                                       owl:someValuesFrom :nameModification
+                                     ]
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasChangeType ;
+                                       owl:someValuesFrom :conceptualModification
+                                     ]
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :toModel ;
+                                       owl:someValuesFrom :Autobiographical_Memory_Model
+                                     ]
+                                   ) ;
+                rdf:type owl:Class
+              ] ;
+              terms:bibliographicCitation "Conway, M. A., & Pleydell-Pearce, C. W. (2000). The construction of autobiographical memories in the self-memory system. Psychological review, 107(2), 261–288. https://doi.org/10.1037/0033-295x.107.2.261" ;
+              skos:definition "\"Reconstructs memories from conceptual knowledge and episodic memories. Participates in the construction of personal identity.\", Cognitive psychology of human memory (CogMemo thesaurus)" ;
+              rdfs:label "Working Self"@en ;
+              skos:prefLabel "Control Process"@en .
+              
+
+###  https://w3id.org/MemOnto#Direct_Retrieval
+:Direct_Retrieval rdf:type owl:Class ;
+                  rdfs:label "Direct Retrieval"@en ;
+                  skos:prefLabel "Direct Retrieval"@en ; 
+                  rdfs:subClassOf :Retrieval ;
+                  skos:definition "\"In autobiographical memory, \"a relatively fast retrieval process that involves “no effort” [...] characterized as lacking overt, conscious search strategies\" (Mace et al., 2021, p. 2).\", Cognitive psychology of human memory (CogMemo thesaurus) " ;
+                  terms:bibliographicCitation "Conway, M. A., & Pleydell-Pearce, C. W. (2000). The construction of autobiographical memories in the self-memory system. Psychological review, 107(2), 261–288. https://doi.org/10.1037/0033-295x.107.2.261" ;
+                  rdfs:comment "\"The search process is modulated by control processes in generative retrieval but not, or not so extensively, in direct retrieval.\" (Conway, M. A., & Pleydell-Pearce, C. W. (2000))" .
+
+
+###  https://w3id.org/MemOnto#Episodic_Memory
+:Episodic_Memory rdf:type owl:Class ;
+                 owl:equivalentClass [ owl:intersectionOf ( :Event-Specific_Knowledge
+                                                            :General_Event
+                                                          ) ;
+                                       rdf:type owl:Class
+                                     ] .
+
+
+###  https://w3id.org/MemOnto#Event-Specific_Knowledge
+:Event-Specific_Knowledge rdf:type owl:Class ;
+                          rdfs:label "Event-Specific Knowledge"@en ;
+                          skos:prefLabel "Event-Specific Knowledge"@en ; 
+                          rdfs:subClassOf :Autobiographical_Knowledge ;
+                          # [ rdf:type owl:Restriction ;
+                          #   owl:onProperty :experiencedAs ;
+                          #   owl:someValuesFrom :Vivid
+                          # ] ;
+                          skos:altLabel "ESK"@en ;
+                          terms:bibliographicCitation "Conway, M. A., & Pleydell-Pearce, C. W. (2000). The construction of autobiographical memories in the self-memory system. Psychological review, 107(2), 261–288. https://doi.org/10.1037/0033-295x.107.2.261" ;
+                          rdfs:comment "\"ESK details are contextualized within a general event that in turn is associated with one or more lifetime periods that locate the more specific knowledge within an individual's autobiographical memory as a whole.\" (Conway, M. A., & Pleydell-Pearce, C. W. (2000))" .
+
+
+###  https://w3id.org/MemOnto#General_Event
+:General_Event rdf:type owl:Class ;
+               rdfs:label "General Event"@en ;
+               skos:prefLabel "General Event"@en ; 
+               rdfs:subClassOf :Autobiographical_Knowledge ;
+               terms:bibliographicCitation "Conway, M. A., & Pleydell-Pearce, C. W. (2000). The construction of autobiographical memories in the self-memory system. Psychological review, 107(2), 261–288. https://doi.org/10.1037/0033-295x.107.2.261" ;
+               rdfs:comment "\"Barsalou (1988) found that general events encompassed both repeated events (e.g., evening hikes to meadows) and single events (e.g., my trip to Paris).\" (Conway, M. A., & Pleydell-Pearce, C. W. (2000))" .
+
+
+###  https://w3id.org/MemOnto#Generative_Retrieval
+:Generative_Retrieval rdf:type owl:Class ;
+                      rdfs:label "Generative Retrieval"@en ;
+                      skos:prefLabel "Generative Retrieval"@en ; 
+                      rdfs:subClassOf :Retrieval ;
+                      skos:definition "\"\"A long, protracted retrieval process where one exerts considerable effort to retrieve a past experience [...] involving the use of elaborate, conscious search strategies\" (Mace et al., 2021, p. 2).\", Cognitive psychology of human memory (CogMemo thesaurus)" ;
+                      terms:bibliographicCitation "Conway, M. A., & Pleydell-Pearce, C. W. (2000). The construction of autobiographical memories in the self-memory system. Psychological review, 107(2), 261–288. https://doi.org/10.1037/0033-295x.107.2.261" ;
+                      rdfs:comment "\"The search process is modulated by control processes in generative retrieval.\" (Conway, M. A., & Pleydell-Pearce, C. W. (2000))" .
+
+
+###  https://w3id.org/MemOnto#Ideal_Self
+:Ideal_Self rdf:type owl:Class ;
+            rdfs:label "Ideal Self"@en ;
+            skos:prefLabel "Ideal Self"@en ; 
+            rdfs:subClassOf :Self ;
+            skos:definition "\"In models of self-concept, a mental representation of an exemplary set of psychological attributes that one strives or wishes to possess.\", APA Dictionary of Psychology" ;
+            terms:bibliographicCitation "Conway, M. A., & Pleydell-Pearce, C. W. (2000). The construction of autobiographical memories in the self-memory system. Psychological review, 107(2), 261–288. https://doi.org/10.1037/0033-295x.107.2.261" ;
+            rdfs:comment "\"What the self aspires to.\" (Conway, M. A., & Pleydell-Pearce, C. W. (2000))" .
+
+
+###  https://w3id.org/MemOnto#Lifetime_Period
+:Lifetime_Period rdf:type owl:Class ;
+                 rdfs:label "Lifetime Period"@en ;
+                 skos:prefLabel "Lifetime Period"@en ; 
+                 rdfs:subClassOf :Autobiographical_Knowledge ;
+                 terms:bibliographicCitation "Conway, M. A., & Pleydell-Pearce, C. W. (2000). The construction of autobiographical memories in the self-memory system. Psychological review, 107(2), 261–288. https://doi.org/10.1037/0033-295x.107.2.261" ;
+                 rdfs:comment "\"Lifetime periods [...] represent general knowledge of significant others, common locations, actions, activities, plans, and goals, characteristic of a period.\" (Conway, M. A., & Pleydell-Pearce, C. W. (2000))" .
+
+
+###  https://w3id.org/MemOnto#Memory_Representation
+:Memory_Representation rdf:type owl:Class ;
+                       rdfs:label "Memory Representation"@en .
+
+
+###  https://w3id.org/MemOnto#Memory_Model
+:Memory_Model rdf:type owl:Class ;
+              rdfs:label "Memory Model"@en .
+
+
+###  https://w3id.org/MemOnto#Memory_Process
+:Memory_Process rdf:type owl:Class ;
+                rdfs:label "Memory Process"@en .
+
+
+###  https://w3id.org/MemOnto#Ought_Self
+:Ought_Self rdf:type owl:Class ;
+            rdfs:label "Ought Self"@en ;
+            skos:prefLabel "Ought Self"@en ; 
+            rdfs:subClassOf :Self ;
+            skos:definition "\"In analyses of self-concept, a mental representation of a set of attributes that one is obligated to possess according to social norms or one’s personal responsibilities.\", APA Dictionary of Psychology" ;
+            terms:bibliographicCitation "Conway, M. A., & Pleydell-Pearce, C. W. (2000). The construction of autobiographical memories in the self-memory system. Psychological review, 107(2), 261–288. https://doi.org/10.1037/0033-295x.107.2.261" ;
+            rdfs:comment "\"The self one should be as specified by one's parents, educators, other significant persons, and society generally.\" (Conway, M. A., & Pleydell-Pearce, C. W. (2000))" .
+
+
+###  https://w3id.org/MemOnto#Retrieval
+:Retrieval rdf:type owl:Class ;
+           rdfs:label "Retrieval"@en .
+
+
+###  https://w3id.org/MemOnto#Self
+:Self rdf:type owl:Class ;
+      rdfs:label "Self"@en ;
+      skos:prefLabel "Self"@en ; 
+      rdfs:subClassOf :Cognitive_Memory_System ;
+      skos:definition "\"The totality of the individual, consisting of all characteristic attributes, conscious and unconscious, mental and physical.\", APA Dictionary of Psychology" ;
+      terms:bibliographicCitation "Conway, M. A., & Pleydell-Pearce, C. W. (2000). The construction of autobiographical memories in the self-memory system. Psychological review, 107(2), 261–288. https://doi.org/10.1037/0033-295x.107.2.261" ;
+      rdfs:comment "\"The self is separated into three major domains: the actual self (some approximately accurate rep- resentation of one's self, perhaps, even the system's mental model of itself), the ideal self (what the self aspires to), and the ought self (the self one should be as specified by one's parents, educators, other significant persons, and society generally).\" (Conway, M. A., & Pleydell-Pearce, C. W. (2000))" .
+
+
+###  https://w3id.org/MemOnto#Self-Memory_System
+:Self-Memory_System rdf:type owl:Class ;
+                    rdfs:label "Self-Memory System"@en ;
+                    skos:prefLabel "Self-Memory System"@en ; 
+                    rdfs:subClassOf :Cognitive_Memory_System ;
+                    skos:altLabel "SMS"@en ;
+                    skos:definition "\"Model conceptualizing autobiographical memory as composed of an autobiographical knowledge base and a working-self.\"A long, protracted retrieval process where one exerts considerable effort to retrieve a past experience [...] involving the use of elaborate, conscious search strategies\" (Mace et al., 2021, p. 2).\", Cognitive psychology of human memory (CogMemo thesaurus)" ; 
+                    terms:bibliographicCitation "Conway, M. A., & Pleydell-Pearce, C. W. (2000). The construction of autobiographical memories in the self-memory system. Psychological review, 107(2), 261–288. https://doi.org/10.1037/0033-295x.107.2.261" ;
+                    rdfs:comment "\"The SMS refers to the conjunction of the working self with the autobiographical knowledge base, and it is conceived of as a superordinate and emergent system: (a) It is superordinate in the sense that its convergent parts, the working self and the knowledge base, when conjoined allow autobiographical remembering that could not otherwise occur (cf. Conway & Fthenaki, 2000), and (b) it is emergent in that it is only when the two components interact that they form a system—both can function independently (as detailed below).\" (Conway, M. A., & Pleydell-Pearce, C. W. (2000))" .
+
+
+###  https://w3id.org/MemOnto#Transitory_Mental_Construction
+:Transitory_Mental_Construction rdf:type owl:Class ;
+                                rdfs:label "Transitory Mental Construction"@en ;
+                                skos:prefLabel "Transitory Mental Construction"@en ; 
+                                rdfs:subClassOf :Memory_Representation ;
+                                terms:bibliographicCitation "Conway, M. A., & Pleydell-Pearce, C. W. (2000). The construction of autobiographical memories in the self-memory system. Psychological review, 107(2), 261–288. https://doi.org/10.1037/0033-295x.107.2.261" .
+
+
+###  https://w3id.org/MemOnto#Working_Self
+:Working_Self rdf:type owl:Class ;
+              rdfs:label "Working Self"@en ;
+              skos:prefLabel "Working Self"@en ; 
+              skos:definition "\"Reconstructs memories from conceptual knowledge and episodic memories. Participates in the construction of personal identity.\", Cognitive psychology of human memory (CogMemo thesaurus)" ; 
+              terms:bibliographicCitation "Conway, M. A., & Pleydell-Pearce, C. W. (2000). The construction of autobiographical memories in the self-memory system. Psychological review, 107(2), 261–288. https://doi.org/10.1037/0033-295x.107.2.261" ;
+              rdfs:comment "\"A set of hierarchically structured goals.\", \"We introduce here the term working self to make an explicit connection to the concept of working memory as outlined by Baddeley (1986) and specifically to the notion that a core part of working memory is a set of control processes that coordinate and modulate other computationally separate system.\" (Conway, M. A., & Pleydell-Pearce, C. W. (2000))" .
+
+
+###  https://w3id.org/MemOnto#Working_Self_Current_Goal
+:Working_Self_Current_Goal rdf:type owl:Class ;
+                           rdfs:label "Working Self Current Goal"@en ;
+                           skos:prefLabel "Working Self Current Goal"@en ; 
+                           rdfs:subClassOf :Working_Self_Goal ;
+                           terms:bibliographicCitation "Conway, M. A., & Pleydell-Pearce, C. W. (2000). The construction of autobiographical memories in the self-memory system. Psychological review, 107(2), 261–288. https://doi.org/10.1037/0033-295x.107.2.261" ;
+                           rdfs:comment "\"The current goals of the self, function as control processes that modulate the construction of memories.\" (Conway, M. A., & Pleydell-Pearce, C. W. (2000))" .
+
+
+###  https://w3id.org/MemOnto#Working_Self_Goal
+:Working_Self_Goal rdf:type owl:Class ;
+                   rdfs:label "Working Self Goal"@en ;
+                   skos:prefLabel "Working Self Goal"@en ; 
+                   rdfs:subClassOf :Working_Self ;
+                   terms:bibliographicCitation "Conway, M. A., & Pleydell-Pearce, C. W. (2000). The construction of autobiographical memories in the self-memory system. Psychological review, 107(2), 261–288. https://doi.org/10.1037/0033-295x.107.2.261" ;
+                   rdfs:comment "\"The goals of the working self form a subset of working-memory control processes organized into interconnected goal hierarchies that function to constrain cognition, and ultimately behavior, into effective ways of operating on the world.\" (Conway, M. A., & Pleydell-Pearce, C. W. (2000))" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://w3id.org/MemOnto#Conway
+:Conway rdf:type owl:NamedIndividual ,
+                 :Author ;
+        rdfs:label "Martin Conway"@en ;
+        skos:altLabel "Martin A. Conway"@en ;
+        skos:altLabel "Martin Anthony Conway"@en .
+
+
+###  https://w3id.org/MemOnto#Pleydell-Pearce
+:Pleydell-Pearce rdf:type owl:NamedIndividual ,
+                          :Author ;
+                 rdfs:label "Christopher Pleydell-Pearce"@en ;
+                 skos:altLabel "Christopher W. Pleydell-Pearce"@en .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+# rdfs:subClassOf :Cognitive_Memory_System  .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

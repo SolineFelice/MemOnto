@@ -1,0 +1,399 @@
+@prefix : <https://w3id.org/MemOnto#> .
+@prefix anc: <http://www.semanticweb.org/cognitive-ontologies/core#anc:> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix anc1: <https://gitlab.com/ccns/neurocog/neurodataops/anc/classification/cognitive-ontology/-/raw/main/core.owl#anc:> .
+@prefix core: <http://www.semanticweb.org/cognitive-ontologies/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix core1: <https://gitlab.com/ccns/neurocog/neurodataops/anc/classification/cognitive-ontology/-/raw/main/core.owl#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@base <https://w3id.org/MemOnto#> .
+
+<https://w3id.org/MemOnto> rdf:type owl:Ontology ;
+                           <http://purl.org/dc/terms/title> "Mem'Onto"@en ;
+                           owl:versionIRI <https://w3id.org/MemOnto> ;
+                           owl:imports <https://w3id.org/Autobiographical_Memory_Model> ,
+                                       <https://w3id.org/Early_Decomposition_Model> ,
+                                       <https://w3id.org/Embedded-Processes_Model> ,
+                                       <https://w3id.org/Fuzzy_Trace_Theory> ,
+                                       <https://w3id.org/Late_Decomposition_Model> ,
+                                       <https://w3id.org/MNESIS_Model> ,
+                                       <https://w3id.org/Modal_Model> ,
+                                       <https://w3id.org/Multicomponent_Model> ,
+                                       <https://w3id.org/SPI_Model> ,
+                                       <https://w3id.org/TBRS_Model> ;
+                           terms:license "https://creativecommons.org/licenses/by/4.0/" ;
+                           <http://purl.org/dc/terms/license> "https://creativecommons.org/licenses/by/4.0/" ;
+                           terms:bibliographicCitation "https://loterre.istex.fr/P66/fr/?clang=en and https://gitlab.com/ccns/neurocog/neurodataops/anc/classification/cognitive-ontology/-/releases/alpha-release" ;
+                           <http://purl.org/dc/terms/created> "2026-03-01" ;
+                           <http://purl.org/dc/terms/description> "MemOnto is a Memory Ontology developed to represent memory in its various fields of application and to bring out the similarities and divergences between theories and domains. It covers ten theories that include various concepts such as memory systems (e.g., episodic memory, long-term memory), memory processes (e.g., encoding, semanticization), types of consciousness (e.g., anoetic consciousness, autonoetic consciousness), and phenomena (e.g., false memories, phantom recollection).
+MemOnto is adapted from CoTOn (Cognitive Theory Ontology from Ravenschlag et al., 2023)."^^rdfs:Literal ,
+                                          "The definitions of the models from the CoTOn ontology (i.e., Modal Model, Early Decomposition Model, Embedded-Process Model, Late Decomposition Model, and the Multicomponent Model) were taken from CoTOn, while the others (i.e., Mnesis Model, Autobiographical Memory Model, Fuzzy-Trace Theory, Time-Based Ressource-Sharing Model and SPI Model) come from the CogMemo thesaurus." ;
+                           <http://purl.org/vocab/vann/preferredNamespacePrefix> "memonto" ;
+                           owl:priorVersion "https://w3id.org/MemOnto/1.0.0" ;
+                           owl:versionInfo "2.0.0" .
+
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/license
+<http://purl.org/dc/elements/1.1/license> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/alternative
+terms:alternative rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/bibliographicCitation
+terms:bibliographicCitation rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/created
+terms:created rdf:type owl:AnnotationProperty ;
+              skos:definition "Date of creation of the resource." ;
+              rdfs:subPropertyOf terms:date .
+
+
+###  http://purl.org/dc/terms/creator
+terms:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/date
+terms:date rdf:type owl:AnnotationProperty ;
+           skos:definition "A point or period of time associated with an event in the lifecycle of the resource." .
+
+
+###  http://purl.org/dc/terms/modified
+terms:modified rdf:type owl:AnnotationProperty ;
+               skos:definition "Date on which the resource was changed." ;
+               rdfs:subPropertyOf terms:date .
+
+
+###  http://purl.org/dc/terms/title
+terms:title rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#altLabel
+skos:altLabel rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+skos:definition rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+skos:prefLabel rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/MemOnto#activates
+:activates rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/MemOnto#asAwarenessExpressionForm
+:asAwarenessExpressionForm rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/MemOnto#characterizes
+:characterizes rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/MemOnto#creates
+:creates rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/MemOnto#defines
+:defines rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/MemOnto#fromConcept
+:fromConcept rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/MemOnto#fromModel
+:fromModel rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/MemOnto#hasAwarenessExpressionFormOfMemory
+:hasAwarenessExpressionFormOfMemory rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/MemOnto#hasChangeType
+:hasChangeType rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/MemOnto#hasPart
+:hasPart rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/MemOnto#hasProcess
+:hasProcess rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/MemOnto#holdsTrue
+:holdsTrue rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/MemOnto#isAssociatedWith
+:isAssociatedWith rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/MemOnto#isAwarenessExpressionFormOfMemoryOf
+:isAwarenessExpressionFormOfMemoryOf rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/MemOnto#isCharacterizedBy
+:isCharacterizedBy rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/MemOnto#isCreatedBy
+:isCreatedBy rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/MemOnto#isDefinedBy
+:isDefinedBy rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/MemOnto#isEvolved
+:isEvolved rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/MemOnto#isIntegratedIn
+:isIntegratedIn rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/MemOnto#isPartOf
+:isPartOf rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/MemOnto#isProcessOf
+:isProcessOf rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/MemOnto#isReusedIn
+:isReusedIn rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/MemOnto#isRevisedIn
+:isRevisedIn rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/MemOnto#isStateOf
+:isStateOf rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/MemOnto#linkedToProcess
+:linkedToProcess rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/MemOnto#memoryComponent
+:memoryComponent rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/MemOnto#memorySystem
+:memorySystem rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/MemOnto#promotes
+:promotes rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/MemOnto#suppresses
+:suppresses rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/MemOnto#toModel
+:toModel rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.org/nemo/gufo#Event
+<http://purl.org/nemo/gufo#Event> rdf:type owl:Class ;
+                                  terms:bibliographicCitation "Casati, R. & Varzi, A. (2015). Events. In E.N. Zalta (Ed.), The Stanford Encyclopedia of Philosophy (Winter 2015 ed.). 19 Metaphysics Research Lab, Stanford University. https://plato.stanford.edu/archives/win2015/entries/events/" ;
+                                  rdfs:comment """A gufo:ConcreteIndividual that 'occurs' or 'happens' in time. They may be instantaneous or long-running. Events are those \\\"things that happen to or are performed by\\\" (Casati and Varzi, 2015) endurants. 
+
+Examples include actions and processes, such as a business meeting, a communicative act, a soccer match, a goal kick, the clicking of a mouse button; as well as natural occurrences such as an earthquake, the fall of the meteor that caused the extinction of the dinosaurs.
+
+Also termed \\\"happening\\\", \\\"occurrence\\\", \\\"perdurant\\\" or \\\"occurrent\\\" in the philosophical literature.""" ;
+                                  skos:prefLabel "Event"@en ;
+                                  rdfs:label "Event"@en .
+
+
+###  http://purl.org/nemo/gufo#RigidType
+<http://purl.org/nemo/gufo#RigidType> rdf:type owl:Class ;
+                                      rdfs:comment """A gufo:EndurantType which applies necessarily to its instances (see Guizzardi, 2005, chapter 4).
+
+Examples include the types \\\"Agent\\\", \\\"Person\\\", \\\"Animal\\\", \\\"PhysicalObject\\\", \\\"Car\\\", and \\\"Tree\\\".""" ;
+                                      skos:prefLabel "RigidType"@en ;
+                                      rdfs:label "RigidType"@en .
+
+
+###  https://w3id.org/MemOnto#Agent
+:Agent rdf:type owl:Class ;
+       rdfs:subClassOf <http://purl.org/nemo/gufo#RigidType> ;
+       rdfs:label "Agent"@en ;
+       skos:prefLabel "Agent"@en .
+
+
+###  https://w3id.org/MemOnto#Author
+:Author rdf:type owl:Class ;
+        rdfs:subClassOf :Person ;
+        terms:bibliographicCitation "A. Ravenschlag, B. Löhnert, G. Guizzardi, M. da Silva Teixeira, M. Denissen, F. Hutzler, Coton: A cognitive theory ontology for representing diverging conceptualizations of cognitive concepts, CEUR workshop proceedings 3637 (2023). Publisher Copyright: © 2023 Copyright for this paper by its authors.; Joint Ontology Workshops 2023, Episode IX: The Quebec Summer of Ontology, JOWO 2023, JOWO 2023 ; Conference date: 19-07-2023 Through 20-07-2023." ;
+        rdfs:label "Author"@en ;
+        skos:prefLabel "Author"@en ;
+        skos:definition "The creator of a Theory." .
+
+
+###  https://w3id.org/MemOnto#Cognitive_Memory_System
+:Cognitive_Memory_System rdf:type owl:Class ;
+                         rdfs:subClassOf :Concept ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :isDefinedBy ;
+                                           owl:someValuesFrom :Memory_Model
+                                         ] ;
+                         terms:bibliographicCitation "Tulving E (1985a) How many systems are there? Am Psychol 26(1):1-12" ;
+                         skos:prefLabel "Cognitive Memory System"@en ;
+                         rdfs:label "Cognitive Memory System"@en ;
+                                #     "Systèmes de Mémoire Cognitifs"@fr ;
+                         skos:definition "Memory systems are organized structures of more elementary operating components." .
+
+
+###  https://w3id.org/MemOnto#Cognitive_Memory_System_State
+:Cognitive_Memory_System_State rdf:type owl:Class ;
+                               rdfs:subClassOf :State ;
+                               skos:prefLabel "Cognitive Memory System State"@en ;
+                               rdfs:label "Cognitive Memory System State"@en .
+
+###  https://w3id.org/MemOnto#State
+:State rdf:type owl:Class ;
+        skos:prefLabel "State"@en ;
+        rdfs:label "State"@en .
+
+
+###  https://w3id.org/MemOnto#Concept
+:Concept rdf:type owl:Class ;
+         terms:bibliographicCitation "Y. Dudai, H. Roediger, E. Tulving, Memory concepts, 2007. doi:10.1093/acprof:oso/ 9780195310443.003.0001." ;
+         rdfs:label "Concept"@en ;
+         skos:prefLabel "Concept"@en ;
+         skos:definition "Mental representations that encode sets of attributes that describe real or imaginary classes of items, processes or relationships." .
+
+
+###  https://w3id.org/MemOnto#Consciousness
+:Consciousness rdf:type owl:Class ;
+               rdfs:subClassOf :Concept ;
+               skos:prefLabel "Consciousness"@en ;
+               rdfs:label "Consciousness"@en .
+
+
+###  https://w3id.org/MemOnto#Learning
+:Learning rdf:type owl:Class .
+
+
+###  https://w3id.org/MemOnto#Memory_Model
+:Memory_Model rdf:type owl:Class ;
+              rdfs:subClassOf :Model ;
+              skos:prefLabel "Memory Model"@en ;
+              rdfs:label "Memory Model"@en .
+
+###  https://w3id.org/MemOnto#Memory_Theory
+:Memory_Theory rdf:type owl:Class ;
+              rdfs:subClassOf :Theory ;
+              skos:prefLabel "Memory Theory"@en ;
+              rdfs:label "Memory Theory"@en .
+
+
+###  https://w3id.org/MemOnto#Memory_Process
+:Memory_Process rdf:type owl:Class ;
+                rdfs:subClassOf :Process ;
+                skos:prefLabel "Memory Process"@en ;
+                rdfs:label "Memory Process"@en .
+
+
+###  https://w3id.org/MemOnto#Model_Relation
+:Model_Relation rdf:type owl:Class ;
+                skos:prefLabel "Model Relation"@en ;
+                rdfs:label "Model Relation"@en .
+
+
+###  https://w3id.org/MemOnto#Person
+:Person rdf:type owl:Class ;
+        rdfs:subClassOf :Agent ;
+        skos:prefLabel "Person"@en ;
+        rdfs:label "Person"@en .
+
+
+###  https://w3id.org/MemOnto#Process
+:Process rdf:type owl:Class ;
+         rdfs:subClassOf <http://purl.org/nemo/gufo#Event> ;
+         terms:bibliographicCitation "R. Arp, B. Smith, A. D. Spear, Building Ontologies with Basic Formal Ontology, The MIT Press, 2015. URL: http://www.jstor.org/stable/j.ctt17kk7vw." ;
+         rdfs:label "Process"@en ;
+         skos:prefLabel "Process"@en ;
+         skos:definition "An occurrent entity that exists in time by occurring or happening, has temporal parts, and always depends on some (at least one) material entity." .
+
+
+###  https://w3id.org/MemOnto#Theory
+:Theory rdf:type owl:Class ;
+        terms:bibliographicCitation "Frigg, Roman and Stephan Hartmann, \"Models in Science\", The Stanford Encyclopedia of Philosophy (Winter 2025 Edition), Edward N. Zalta & Uri Nodelman (eds.)." ;
+        rdfs:label "Theory"@en ;
+        skos:prefLabel "Theory"@en ;
+        skos:definition "A theory is taken to be a (usually deductively closed) set of sentences in a formal language." .
+
+
+###  https://w3id.org/MemOnto#Model
+:Model rdf:type owl:Class ;
+        terms:bibliographicCitation "Frigg, Roman and Stephan Hartmann, \"Models in Science\", The Stanford Encyclopedia of Philosophy (Winter 2025 Edition), Edward N. Zalta & Uri Nodelman (eds.)." ;
+        rdfs:label "Model"@en ;
+        skos:prefLabel "Model"@en ;
+        skos:definition "A model is a structure that makes all sentences of a theory true when its symbols are interpreted as referring to objects, relations, or functions of a structure." .
+
+
+###  https://w3id.org/MemOnto#changeType
+:changeType rdf:type owl:Class ;
+            rdfs:label "changeType"@en ;
+            skos:prefLabel "changeType"@en ;
+            skos:definition """The type of change is used to determine when a concept is reused in a model other than the one that defined it.
+Its subconcepts are conceptual or terminological changes.
+Example of use:
+
+                   :isEvolved [ :fromConcept :PRS_Memory ;
+                                :fromModel :SPI_Model ;
+                                :hasChangeType :conceptualModification ,
+                                               :nameModification ;
+                                :toModel :MNESIS_Model
+                              ]""" .
+
+
+###  https://w3id.org/MemOnto#conceptualModification
+:conceptualModification rdf:type owl:Class ;
+                        rdfs:subClassOf :changeType ;
+                        rdfs:label "conceptualModification"@en ;
+                        skos:prefLabel "conceptualModification"@en ;
+                        skos:definition "The conceptual modification is used to define the reuse of an existing concept that has undergone a conceptual modification (e.g., a change in meaning, property, or components) between its initial model (indicated by the property fromModel) and its final model (indicated by the property toModel)." .
+
+
+###  https://w3id.org/MemOnto#nameModification
+:nameModification rdf:type owl:Class ;
+                  rdfs:subClassOf :changeType ;
+                  rdfs:label "nameModification"@en ;
+                  skos:prefLabel "nameModification"@en ;
+                  skos:definition "The terminological modification is used to define the reuse of an existing concept that has undergone a terminological change (i.e. a name change) between its initial model (indicated by the property fromModel) and its final model (indicated by the property toModel)." .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

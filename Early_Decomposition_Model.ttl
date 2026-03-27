@@ -1,0 +1,148 @@
+@prefix : <https://w3id.org/MemOnto#> .
+@prefix anc: <http://www.semanticweb.org/cognitive-ontologies/core#anc:> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix anc1: <https://gitlab.com/ccns/neurocog/neurodataops/anc/classification/cognitive-ontology/-/raw/main/core.owl#anc:> .
+@prefix core: <http://www.semanticweb.org/cognitive-ontologies/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix core1: <https://gitlab.com/ccns/neurocog/neurodataops/anc/classification/cognitive-ontology/-/raw/main/core.owl#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@base <https://w3id.org/MemOnto#> .
+
+<https://w3id.org/Early_Decomposition_Model> rdf:type owl:Ontology ;
+                                              owl:versionIRI <https://w3id.org/Early_Decomposition_Model> ;
+                                              <http://purl.org/dc/elements/1.1/license> "https://creativecommons.org/licenses/by/3.0/"^^rdfs:Literal ;
+                                              terms:title "Early_Decomposition_Model"^^rdfs:Literal ;
+                                              rdfs:comment "The Early Decomposition Model is adapted from CoTOn (Cognitive Theory Ontology from Ravenschlag et al., 2023)."^^rdfs:Literal .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/license
+<http://purl.org/dc/elements/1.1/license> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/alternative
+terms:alternative rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+terms:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+terms:title rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+skos:definition rdf:type owl:AnnotationProperty .
+
+
+###  https://w3id.org/MemOnto#isCreatedBy
+:isCreatedBy rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+
+###  https://w3id.org/MemOnto#isPartOf
+:isPartOf rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/MemOnto#Morpho-Orthographic_Decomposition
+:Morpho-Orthographic_Decomposition rdf:type owl:Class ;
+                                   rdfs:subClassOf :Cognitive_Memory_System ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty :isPartOf ;
+                                                     owl:someValuesFrom :Visual_Word_Processing
+                                                   ] ;
+                                    rdfs:label "Morpho-Orthographic_Decomposition"@en ;
+                                    skos:prefLabel "Morpho-Orthographic_Decomposition"@en ; 
+                                    skos:exactMatch "https://gitlab.com/ccns/neurocog/neurodataops/anc/classification/cognitive-ontology/-/raw/main/cogatlas.owl#Morpho-Orthographic_Decomposition" ;
+                                    skos:definition "Component of visual word processing that decomposes morphologically complex words based on orthograpic properties." ;
+                                    terms:bibliographicCitation "Rastle, K., & Davis, M. H. (2008). Morphological decomposition based on the analysis of orthography. Language and Cognitive Processes, 23(7–8), 942–971. https://doi.org/10.1080/01690960802069730" .
+
+
+
+###  https://w3id.org/MemOnto#Orthographic_Analysis
+:Orthographic_Analysis rdf:type owl:Class ;
+                       rdfs:label "Orthographic Analysis"@en ;
+                       skos:prefLabel "Orthographic Analysis"@en ; 
+                       skos:exactMatch "https://gitlab.com/ccns/neurocog/neurodataops/anc/classification/cognitive-ontology/-/raw/main/cogatlas.owl#Orthographic_Analysis" ;
+                       terms:bibliographicCitation "Rastle, K., & Davis, M. H. (2008). Morphological decomposition based on the analysis of orthography. Language and Cognitive Processes, 23(7–8), 942–971. https://doi.org/10.1080/01690960802069730" .
+
+
+
+###  https://w3id.org/MemOnto#Semantic_Processing
+:Semantic_Processing rdf:type owl:Class ;
+                     skos:exactMatch "https://gitlab.com/ccns/neurocog/neurodataops/anc/classification/cognitive-ontology/-/raw/main/cogatlas.owl#Semantic_Processing" ;
+                     terms:bibliographicCitation "Rastle, K., & Davis, M. H. (2008). Morphological decomposition based on the analysis of orthography. Language and Cognitive Processes, 23(7–8), 942–971. https://doi.org/10.1080/01690960802069730" .
+
+
+
+###  https://w3id.org/MemOnto#Visual_Word_Processing
+:Visual_Word_Processing rdf:type owl:Class ;
+                        skos:exactMatch "https://gitlab.com/ccns/neurocog/neurodataops/anc/classification/cognitive-ontology/-/raw/main/cogatlas.owl#Visual_Word_Processing" ;
+                        terms:bibliographicCitation "Rastle, K., & Davis, M. H. (2008). Morphological decomposition based on the analysis of orthography. Language and Cognitive Processes, 23(7–8), 942–971. https://doi.org/10.1080/01690960802069730" .
+
+
+
+###  https://w3id.org/MemOnto#Author
+:Author rdf:type owl:Class .
+
+
+###  https://w3id.org/MemOnto#Cognitive_Memory_System
+:Cognitive_Memory_System rdf:type owl:Class .
+
+
+###  https://w3id.org/MemOnto#Early_Decomposition_Model
+:Early_Decomposition_Model rdf:type owl:Class ;
+                           rdfs:label "Early Decomposition Model"@en ;
+                           skos:prefLabel "Early Decomposition Model"@en ; 
+                           rdfs:subClassOf :Memory_Model ;
+                                            # [ rdf:type owl:Restriction ;
+                                            #     owl:onProperty :isCreatedBy ;
+                                            #     owl:someValuesFrom <https://gitlab.com/ccns/neurocog/neurodataops/anc/classification/cognitive-ontology/-/raw/main/cogatlas.owl#Davis> 
+                                            # ] ,
+                                            # [ rdf:type owl:Restriction ;
+                                            #     owl:onProperty :isCreatedBy ;
+                                            #     owl:someValuesFrom <https://gitlab.com/ccns/neurocog/neurodataops/anc/classification/cognitive-ontology/-/raw/main/cogatlas.owl#Rastle> 
+                                            # ] ;
+                           terms:bibliographicCitation "Rastle, K., & Davis, M. H. (2008). Morphological decomposition based on the analysis of orthography. Language and Cognitive Processes, 23(7–8), 942–971. https://doi.org/10.1080/01690960802069730" ;
+                           terms:created "2008-01-01T01:01:01"^^xsd:dateTime ;
+                           :isCreatedBy <https://gitlab.com/ccns/neurocog/neurodataops/anc/classification/cognitive-ontology/-/raw/main/cogatlas.owl#Davis> ,
+                                        <https://gitlab.com/ccns/neurocog/neurodataops/anc/classification/cognitive-ontology/-/raw/main/cogatlas.owl#Rastle> .
+
+
+###  https://w3id.org/MemOnto#Memory_Model
+:Memory_Model rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://gitlab.com/ccns/neurocog/neurodataops/anc/classification/cognitive-ontology/-/raw/main/cogatlas.owl#Davis
+<https://gitlab.com/ccns/neurocog/neurodataops/anc/classification/cognitive-ontology/-/raw/main/cogatlas.owl#Davis> rdf:type owl:NamedIndividual ,
+                                                                                                                             :Author ;
+                                                                                                                    rdfs:label "Matthew Davis"@en .
+
+
+###  https://gitlab.com/ccns/neurocog/neurodataops/anc/classification/cognitive-ontology/-/raw/main/cogatlas.owls#Rastle
+<https://gitlab.com/ccns/neurocog/neurodataops/anc/classification/cognitive-ontology/-/raw/main/cogatlas.owl#Rastle> rdf:type owl:NamedIndividual ,
+                                                                                                                              :Author ;
+                                                                                                                     rdfs:label "Kathleen Rastle"@en .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

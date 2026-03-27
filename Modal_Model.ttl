@@ -1,0 +1,581 @@
+@prefix : <https://w3id.org/MemOnto#> .
+@prefix anc: <http://www.semanticweb.org/cognitive-ontologies/core#anc:> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix anc1: <https://gitlab.com/ccns/neurocog/neurodataops/anc/classification/cognitive-ontology/-/raw/main/core.owl#anc:> .
+@prefix core: <http://www.semanticweb.org/cognitive-ontologies/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix core1: <https://gitlab.com/ccns/neurocog/neurodataops/anc/classification/cognitive-ontology/-/raw/main/core.owl#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@base <https://w3id.org/MemOnto#> .
+
+<https://w3id.org/Modal_Model> rdf:type owl:Ontology ;
+                                owl:versionIRI <https://w3id.org/Modal_Model> ;
+                                <http://purl.org/dc/elements/1.1/license> "https://creativecommons.org/licenses/by/3.0/"^^rdfs:Literal ;
+                                terms:title "Modal_Model"^^rdfs:Literal ;
+                                rdfs:comment "The Modal Model is adapted from CoTOn (Cognitive Theory Ontology from Ravenschlag et al., 2023)."^^rdfs:Literal .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/license
+<http://purl.org/dc/elements/1.1/license> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/alternative
+terms:alternative rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+terms:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+terms:title rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+skos:definition rdf:type owl:AnnotationProperty .
+
+
+###  https://w3id.org/MemOnto#isCreatedBy
+:isCreatedBy rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+
+###  https://w3id.org/MemOnto#defines
+:defines rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/MemOnto#isDefinedBy
+:isDefinedBy rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+#################################################################
+#    Systems
+#################################################################
+
+###  https://w3id.org/MemOnto#Short-Term_Store
+:Short-Term_Store rdf:type owl:Class ;                                                 
+                  rdfs:label "Short-Term Store"@en ;
+                  skos:prefLabel "Short-Term Store"@en ;
+                  skos:altLabel "STS"@en ;
+                  skos:exactMatch "https://gitlab.com/ccns/neurocog/neurodataops/anc/classification/cognitive-ontology/-/raw/main/cogatlas.owl#Short-Term_Store" ;
+                  terms:bibliographicCitation "Atkinson, R. C., & Shiffrin, R. M. (1968). Human memory : A proposed system and its control processes. In K. W. Spence & J. T. Spence (Eds.), The Psychology of Learning and Motivation (Vol. 2, pp. 89‑195). Academic Press." ;     
+                  skos:definition "The maintenance of information for a short period of time." ;
+                  rdfs:subClassOf :Cognitive_Memory_System ,
+                  [ rdf:type owl:Restriction ;
+                    owl:onProperty :isDefinedBy ;
+                    owl:someValuesFrom :Modal_Model
+                  ] .
+
+
+###  https://w3id.org/MemOnto#Visual_Short-Term_Store
+:Visual_Short-Term_Store rdf:type owl:Class ;
+                         rdfs:subClassOf :Short-Term_Store ;
+                         terms:bibliographicCitation "Atkinson, R. C., & Shiffrin, R. M. (1968). Human memory : A proposed system and its control processes. In K. W. Spence & J. T. Spence (Eds.), The Psychology of Learning and Motivation (Vol. 2, pp. 89‑195). Academic Press." ;     
+                         rdfs:label "Visual Short-Term Store"@en ; 
+                         skos:prefLabel "Visual Short-Term Store"@en ;
+                         skos:altLabel "Visual STS"@en .
+
+
+###  https://w3id.org/MemOnto#Auditory_Short-Term_Store
+:Auditory_Short-Term_Store rdf:type owl:Class ;
+                           rdfs:subClassOf :Short-Term_Store ;
+                          #  owl:disjointWith :Verbal_Short-Term_Store ,
+                          #                   :Linguistic_Short-Term_Store ;
+                           terms:bibliographicCitation "Atkinson, R. C., & Shiffrin, R. M. (1968). Human memory : A proposed system and its control processes. In K. W. Spence & J. T. Spence (Eds.), The Psychology of Learning and Motivation (Vol. 2, pp. 89‑195). Academic Press." ;     
+                           rdfs:label "Auditory Short-Term Store"@en ; 
+                           skos:prefLabel "Auditory Short-Term Store"@en ;
+                           skos:altLabel "Auditory STS"@en .
+
+
+###  https://w3id.org/MemOnto#Verbal_Short-Term_Store
+:Verbal_Short-Term_Store rdf:type owl:Class ;
+                         rdfs:subClassOf :Short-Term_Store ;
+                         terms:bibliographicCitation "Atkinson, R. C., & Shiffrin, R. M. (1968). Human memory : A proposed system and its control processes. In K. W. Spence & J. T. Spence (Eds.), The Psychology of Learning and Motivation (Vol. 2, pp. 89‑195). Academic Press." ;     
+                         rdfs:label "Verbal Short-Term Store"@en ; 
+                         skos:prefLabel "Verbal Short-Term Store"@en ;
+                         skos:altLabel "Verbal STS"@en .
+
+
+###  https://w3id.org/MemOnto#Linguistic_Short-Term_Store
+:Linguistic_Short-Term_Store rdf:type owl:Class ;
+                             rdfs:subClassOf :Short-Term_Store ;
+                             skos:prefLabel "Verbal Short-Term Store"@en ;
+                            #  owl:disjointWith :Auditory_Short-Term_Store ,
+                            #                   :Verbal_Short-Term_Store ;
+                             terms:bibliographicCitation "Atkinson, R. C., & Shiffrin, R. M. (1968). Human memory : A proposed system and its control processes. In K. W. Spence & J. T. Spence (Eds.), The Psychology of Learning and Motivation (Vol. 2, pp. 89‑195). Academic Press." ;     
+                             rdfs:label "Linguistic Short-Term Store"@en ; 
+                             skos:prefLabel "Linguistic Short-Term Store"@en ;
+                             skos:altLabel "Linguistic STS"@en .
+
+
+###  https://w3id.org/MemOnto#Auditory-Verbal-Linguistic_Short-Term_Store
+:Auditory-Verbal-Linguistic_Short-Term_Store rdf:type owl:Class ;
+                                             rdfs:subClassOf :Short-Term_Store ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :isDefinedBy ;
+                                               owl:someValuesFrom :Modal_Model
+                                             ] ;
+                                             owl:equivalentClass [ owl:intersectionOf ( :Auditory_Short-Term_Store
+                                                                                        :Verbal_Short-Term_Store
+                                                                                        :Linguistic_Short-Term_Store
+                                                                                      ) ;
+                                                                   rdf:type owl:Class
+                                                                 ] ;
+                                             rdfs:label "Auditory-Verbal-Linguistic Short-Term Store"@en ; 
+                                             skos:prefLabel "Auditory-Verbal-Linguistic Short-Term Store"@en ;
+                                             terms:bibliographicCitation "Atkinson, R. C., & Shiffrin, R. M. (1968). Human memory : A proposed system and its control processes. In K. W. Spence & J. T. Spence (Eds.), The Psychology of Learning and Motivation (Vol. 2, pp. 89‑195). Academic Press." ;     
+                                             rdfs:comment "\"Since the auditory short-term system will play a major role in subsequent discussions, we shall use the abbreviation a-v-1to stand for auditory-verbal-linguisticstore. The triple term is used because, as we shall see, it is not easy to separate these three functions.\"(Atkinson, R. C. and Shiffrin, R. M. (1968))" ;
+                                            #  owl:disjointUnionOf ( :Auditory_Short-Term_Store
+                                            #                        :Verbal_Short-Term_Store
+                                            #                        :Linguistic_Short-Term_Store
+                                            #                      ) ;
+                                             skos:altLabel "Auditory-Verbal-Linguistic STS"@en ;
+                                             skos:altLabel "a-v-l short-term store"@en .
+
+
+###  https://w3id.org/MemOnto#Rehearsal_Buffer
+:Rehearsal_Buffer rdf:type owl:Class ;
+                  rdfs:subClassOf :Memory_Process ,
+                  [ rdf:type owl:Restriction ;
+                    owl:onProperty :isPartOf ;
+                    owl:someValuesFrom :Short-Term_Store
+                  ] ;
+                  rdfs:comment "\"The model used to analyze the data emphasizes a control process based in the short-term store which we designate a rehearsal buffer.\"(Atkinson, R. C. and Shiffrin, R. M. (1968))" ;
+                  terms:bibliographicCitation "Atkinson, R. C., & Shiffrin, R. M. (1968). Human memory : A proposed system and its control processes. In K. W. Spence & J. T. Spence (Eds.), The Psychology of Learning and Motivation (Vol. 2, pp. 89‑195). Academic Press." ;     
+                  rdfs:label "Rehearsal Buffer"@en ; 
+                  skos:prefLabel "Rehearsal Buffer"@en ;
+                  skos:altLabel "Linguistic STS"@en .
+
+
+###  https://w3id.org/MemOnto#Sensory_Register
+:Sensory_Register rdf:type owl:Class ;
+                  rdfs:subClassOf :Cognitive_Memory_System ,  
+                  [ rdf:type owl:Restriction ;
+                    owl:onProperty :experiencedAs ;
+                    owl:someValuesFrom :Subject-Controlled_Scan
+                  ] ,
+                  [ rdf:type owl:Restriction ;
+                    owl:onProperty :isDefinedBy ;
+                    owl:someValuesFrom :Modal_Model
+                  ] ;
+                  rdfs:comment "\"Incoming sensory information first enters the sensory register, where it resides for a very brief period of time, then decays and is lost.\"(Atkinson, R. C. and Shiffrin, R. M. (1968))" ;
+                  terms:bibliographicCitation "Atkinson, R. C., & Shiffrin, R. M. (1968). Human memory : A proposed system and its control processes. In K. W. Spence & J. T. Spence (Eds.), The Psychology of Learning and Motivation (Vol. 2, pp. 89‑195). Academic Press." ;     
+                  rdfs:label "Sensory Register"@en ;
+                  skos:prefLabel "Sensory Register"@en .
+
+
+###  https://w3id.org/MemOnto#Auditory_Register
+:Auditory_Register rdf:type owl:Class ;
+                   rdfs:subClassOf :Sensory_Register ;
+                  #  rdfs:comment "\"\"(Atkinson, R. C. and Shiffrin, R. M. (1968))" ;
+                   terms:bibliographicCitation "Atkinson, R. C., & Shiffrin, R. M. (1968). Human memory : A proposed system and its control processes. In K. W. Spence & J. T. Spence (Eds.), The Psychology of Learning and Motivation (Vol. 2, pp. 89‑195). Academic Press." ;     
+                   rdfs:label "Auditory Register"@en ; 
+                   skos:prefLabel "Auditory Register"@en .
+
+
+###  https://w3id.org/MemOnto#Short-Term_Visual_Image
+:Short-Term_Visual_Image rdf:type owl:Class ;
+                         rdfs:subClassOf :Sensory_Register ;
+                         terms:bibliographicCitation "Atkinson, R. C., & Shiffrin, R. M. (1968). Human memory : A proposed system and its control processes. In K. W. Spence & J. T. Spence (Eds.), The Psychology of Learning and Motivation (Vol. 2, pp. 89‑195). Academic Press." ;     
+                         rdfs:label "Short-Term Visual Image"@en ; 
+                         #  skos:altLabel ""@en ; 
+                         skos:prefLabel "Short-Term Visual Image"@en .
+
+
+###  https://w3id.org/MemOnto#Long-Term_Store
+:Long-Term_Store rdf:type owl:Class ;
+                 rdfs:subClassOf :Cognitive_Memory_System ,
+                 [ rdf:type owl:Restriction ;
+                   owl:onProperty :isDefinedBy ;
+                   owl:someValuesFrom :Modal_Model
+                 ] ;
+                 rdfs:comment "\"The long-term store is a fairly permanent repository for information, information which is transferred from the short-term store.\"(Atkinson, R. C. and Shiffrin, R. M. (1968))" ;
+                 terms:bibliographicCitation "Atkinson, R. C., & Shiffrin, R. M. (1968). Human memory : A proposed system and its control processes. In K. W. Spence & J. T. Spence (Eds.), The Psychology of Learning and Motivation (Vol. 2, pp. 89‑195). Academic Press." ;     
+                 rdfs:label "Long-Term Store"@en ;
+                 skos:prefLabel "Long-Term Store"@en .
+
+
+###  https://w3id.org/MemOnto#Auditory-Verbal-Linguistic_Long-Term_Store
+:Auditory-Verbal-Linguistic_Long-Term_Store rdf:type owl:Class ;
+                                            rdfs:subClassOf :Long-Term_Store ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :isDefinedBy ;
+                                              owl:someValuesFrom :Modal_Model
+                                            ] ; 
+                                            terms:bibliographicCitation "Atkinson, R. C., & Shiffrin, R. M. (1968). Human memory : A proposed system and its control processes. In K. W. Spence & J. T. Spence (Eds.), The Psychology of Learning and Motivation (Vol. 2, pp. 89‑195). Academic Press." ;     
+                                            rdfs:label "Auditory-Verbal-Linguistic Long-Term Store"@en ;
+                                            skos:prefLabel "Auditory-Verbal-Linguistic Long-Term Store"@en ;
+                                            skos:altLabel "a-v-l Long-Term Store"@en .
+
+
+###  https://w3id.org/MemOnto#Visual_Long-Term_Store
+:Visual_Long-Term_Store rdf:type owl:Class ;
+                        rdfs:subClassOf :Long-Term_Store ;
+                        terms:bibliographicCitation "Atkinson, R. C., & Shiffrin, R. M. (1968). Human memory : A proposed system and its control processes. In K. W. Spence & J. T. Spence (Eds.), The Psychology of Learning and Motivation (Vol. 2, pp. 89‑195). Academic Press." ;     
+                        rdfs:label "Visual Long-Term Store"@en ;
+                        skos:prefLabel "Visual Long-Term Store"@en ;
+                        skos:altLabel "Visual LTS"@en .
+
+
+###  https://w3id.org/MemOnto#Temporal_Long-Term_Store
+:Temporal_Long-Term_Store rdf:type owl:Class ;
+                          rdfs:subClassOf :Long-Term_Store ;
+                          terms:bibliographicCitation "Atkinson, R. C., & Shiffrin, R. M. (1968). Human memory : A proposed system and its control processes. In K. W. Spence & J. T. Spence (Eds.), The Psychology of Learning and Motivation (Vol. 2, pp. 89‑195). Academic Press." ;     
+                          rdfs:label "Temporal Long-Term Store"@en ;
+                          skos:prefLabel "Temporal Long-Term Store"@en ;
+                          skos:altLabel "Temporal LTS"@en .
+
+
+###  https://w3id.org/MemOnto#Memory_Trace
+:Memory_Trace rdf:type owl:Class ;
+              rdfs:subClassOf :Memory_Representation ;
+                              # [ rdf:type owl:Restriction ;
+                              #   owl:onProperty :isPartOf ;
+                              #   owl:someValuesFrom :Short-Term_Store
+                              # ] ,
+                              # [ rdf:type owl:Restriction ;
+                              #   owl:onProperty :isPartOf ;
+                              #   owl:someValuesFrom :Short-Term_Store
+                              # ] ;
+              skos:definition "\"A hypothetical modification of the nervous system that encodes a representation of information or a learning experience.\", APA Dictionary of Psychology" ;
+              terms:bibliographicCitation "Atkinson, R. C., & Shiffrin, R. M. (1968). Human memory : A proposed system and its control processes. In K. W. Spence & J. T. Spence (Eds.), The Psychology of Learning and Motivation (Vol. 2, pp. 89‑195). Academic Press." ;     
+              rdfs:label "Memory Trace"@en ;
+              skos:prefLabel "Memory Trace"@en .
+
+
+###  https://w3id.org/MemOnto#STS_Trace
+:STS_Trace rdf:type owl:Class ;
+           rdfs:subClassOf :Memory_Trace ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :isPartOf ;
+                             owl:someValuesFrom :Short-Term_Store
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :isDefinedBy ;
+                             owl:someValuesFrom :Modal_Model
+                           ] ;
+           terms:bibliographicCitation "Atkinson, R. C., & Shiffrin, R. M. (1968). Human memory : A proposed system and its control processes. In K. W. Spence & J. T. Spence (Eds.), The Psychology of Learning and Motivation (Vol. 2, pp. 89‑195). Academic Press." ;     
+           rdfs:label "STS Trace"@en ;
+           skos:prefLabel "STS Trace"@en ;
+           skos:altLabel "Short-Term Store Trace"@en .
+
+
+###  https://w3id.org/MemOnto#LTS_Trace
+:LTS_Trace rdf:type owl:Class ;
+           rdfs:subClassOf :Memory_Trace ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :isPartOf ;
+                             owl:someValuesFrom :Long-Term_Store
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :isDefinedBy ;
+                             owl:someValuesFrom :Modal_Model
+                           ] ;
+           rdfs:comment "\"The simplest hypothesis is to assume that the trace is all-or-none ;if a trace is placed in memory, then a correct retrieval and response will occur.\"(Atkinson, R. C. and Shiffrin, R. M. (1968))" ;
+           terms:bibliographicCitation "Atkinson, R. C., & Shiffrin, R. M. (1968). Human memory : A proposed system and its control processes. In K. W. Spence & J. T. Spence (Eds.), The Psychology of Learning and Motivation (Vol. 2, pp. 89‑195). Academic Press." ;     
+           rdfs:label "LTS Trace"@en ;
+           skos:prefLabel "LTS Trace"@en ;
+           skos:altLabel "Long-Term Store Trace"@en .
+
+#################################################################
+#    Processes
+#################################################################
+
+
+# ###  https://w3id.org/MemOnto#Information_Copying
+# :Information_Copying rdf:type owl:Class ;
+#                      rdfs:subClassOf :Memory_Process ;
+#                      rdfs:label "Information Copying"@en ;
+#                      skos:prefLabel "Information Copying"@en ;
+#                      rdfs:comment "\"We use transfer to mean the copying of selected information from one store into the next without removing this information from the original store\" (Atkinson, R. C. and Shiffrin, R. M. (1968))" .
+
+
+###  https://w3id.org/MemOnto#Subject-Controlled_Scan
+:Subject-Controlled_Scan rdf:type owl:Class ;
+                         rdfs:subClassOf :Control_Process ;
+                         rdfs:label "Subject-Controlled Scan"@en ;
+                         skos:prefLabel "Subject-Controlled Scan"@en ;
+                         terms:bibliographicCitation "Atkinson, R. C., & Shiffrin, R. M. (1968). Human memory : A proposed system and its control processes. In K. W. Spence & J. T. Spence (Eds.), The Psychology of Learning and Motivation (Vol. 2, pp. 89‑195). Academic Press." ;     
+                         rdfs:comment "\"The next step is a subject-controlled scan of the information in the register; as a result of this scan and an associated search of long-term store, selected information is introduced into short-term store.\" (Atkinson, R. C. and Shiffrin, R. M. (1968))" .
+
+
+###  https://w3id.org/MemOnto#Information_Transfer
+:Information_Transfer rdf:type owl:Class ;
+                      rdfs:subClassOf :Control_Process ;
+                      rdfs:label "Information Transfer"@en ;
+                      skos:prefLabel "Information Transfer"@en ;
+                      terms:bibliographicCitation "Atkinson, R. C., & Shiffrin, R. M. (1968). Human memory : A proposed system and its control processes. In K. W. Spence & J. T. Spence (Eds.), The Psychology of Learning and Motivation (Vol. 2, pp. 89‑195). Academic Press." ;     
+                      rdfs:comment "\"We assume that transfer to the long-term store takes place throughout the period that information resides in the short- term store, although the amount and form of the transferred information is markedly influenced by control processes. The possibility that there may be direct transfer to the long-term store from the sensory register is represented by the dashed line in Fig. 1;\" (Atkinson, R. C. and Shiffrin, R. M. (1968))" ;
+                      rdfs:comment "\"We use transfer to mean the copying of selected information from one store into the next without removing this information from the original store\" (Atkinson, R. C. and Shiffrin, R. M. (1968))" .
+
+
+###  https://w3id.org/MemOnto#Control_Process
+:Control_Process rdf:type owl:Class ;
+                 rdfs:subClassOf :Memory_Process ;
+                 rdfs:label "Control Process"@en ;
+                 skos:prefLabel "Control Process"@en ;
+                 skos:definition "\"Those processes that organize the flow of information in an information-processing system.\", APA Dictionary of Psychology" ;
+                 terms:bibliographicCitation "Atkinson, R. C., & Shiffrin, R. M. (1968). Human memory : A proposed system and its control processes. In K. W. Spence & J. T. Spence (Eds.), The Psychology of Learning and Motivation (Vol. 2, pp. 89‑195). Academic Press." ;     
+                 rdfs:comment "\"The term control process refers to those processes that are not permanent features of memory, but are instead transient phenomena under the control of the subject.\" (Atkinson, R. C. and Shiffrin, R. M. (1968))" .
+
+
+###  https://w3id.org/MemOnto#Rehearsal_Process
+:Rehearsal_Process rdf:type owl:Class ;
+                   rdfs:subClassOf :Control_Process ;
+                   rdfs:label "Rehearsal Process"@en ;
+                   skos:prefLabel "Rehearsal Process"@en ;
+                   terms:bibliographicCitation "Atkinson, R. C., & Shiffrin, R. M. (1968). Human memory : A proposed system and its control processes. In K. W. Spence & J. T. Spence (Eds.), The Psychology of Learning and Motivation (Vol. 2, pp. 89‑195). Academic Press." ;     
+                   rdfs:comment "\"In terms of STS structure, we can imagine that each rehearsal regenerates the STS trace and thereby prolongs the decay.\" (Atkinson, R. C. and Shiffrin, R. M. (1968))" .
+
+
+###  https://w3id.org/MemOnto#Coding_Process
+:Coding_Process rdf:type owl:Class ;
+                rdfs:subClassOf :Control_Process ;
+                rdfs:label "Coding Process"@en ;
+                skos:prefLabel "Coding Process"@en ;
+                terms:bibliographicCitation "Atkinson, R. C., & Shiffrin, R. M. (1968). Human memory : A proposed system and its control processes. In K. W. Spence & J. T. Spence (Eds.), The Psychology of Learning and Motivation (Vol. 2, pp. 89‑195). Academic Press." ;     
+                rdfs:comment "\"A coding process is a select alteration and/or addition to the information in the short-term store as the result of a search of the long-term store. \" (Atkinson, R. C. and Shiffrin, R. M. (1968))" .
+
+
+###  https://w3id.org/MemOnto#Storage
+:Storage rdf:type owl:Class ;
+         rdfs:subClassOf :Control_Process ;
+         rdfs:label "Storage"@en ;
+         skos:prefLabel "Storage"@en .
+
+
+###  https://w3id.org/MemOnto#Long-Term_Search_Process
+:Long-Term_Search_Process rdf:type owl:Class ;
+                          rdfs:subClassOf :Control_Process ;
+                          rdfs:label "Long-Term Search Process"@en ;
+                          skos:prefLabel "Long-Term Search Process"@en ;
+                          skos:altLabel "LTS search process"@en ;
+                          terms:bibliographicCitation "Atkinson, R. C., & Shiffrin, R. M. (1968). Human memory : A proposed system and its control processes. In K. W. Spence & J. T. Spence (Eds.), The Psychology of Learning and Motivation (Vol. 2, pp. 89‑195). Academic Press." ;     
+                          rdfs:comment "\"We have all, at one time or another, been asked for information which we once knew, but which is momentarily unavailable, and we are aware of the ensuing period (often lasting for hours) during which memory was searched, occasionally resulting in the correct answer. \" (Atkinson, R. C. and Shiffrin, R. M. (1968))" .
+
+
+#################################################################
+#    Others
+#################################################################
+
+
+###  https://w3id.org/MemOnto#Author
+:Author rdf:type owl:Class ;
+                 rdfs:label "Author"@en .
+
+
+###  https://w3id.org/MemOnto#Memory_Model
+:Memory_Model rdf:type owl:Class ;
+                 rdfs:label "Memory Model"@en .
+
+
+###  https://w3id.org/MemOnto#Modal_Model
+:Modal_Model rdf:type owl:Class ;
+             rdfs:label "Modal Model"@en ;
+             skos:prefLabel "Modal Model"@en ; 
+             skos:altLabel "Multi-store model"@en ; 
+             skos:altLabel "Atkinson and Shiffrin Theoretical Framework"@en ; 
+             terms:created "1968-01-01T01:01:01"^^xsd:dateTime ;
+             terms:bibliographicCitation "Atkinson, R. C., & Shiffrin, R. M. (1968). Human memory : A proposed system and its control processes. In K. W. Spence & J. T. Spence (Eds.), The Psychology of Learning and Motivation (Vol. 2, pp. 89‑195). Academic Press." ;     
+             rdfs:subClassOf :Memory_Model ,
+              [ rdf:type owl:Restriction ;
+                owl:onProperty :defines ;
+                owl:someValuesFrom :Short-Term_Store
+              ] ,
+              [ rdf:type owl:Restriction ;
+                owl:onProperty :defines ;
+                owl:someValuesFrom :Long-Term_Store
+              ] ,
+              [ rdf:type owl:Restriction ;
+                owl:onProperty :defines ;
+                owl:someValuesFrom :Sensory_Register
+              ] ,
+              [ rdf:type owl:Restriction ;
+                owl:onProperty :defines ;
+                owl:someValuesFrom :Auditory-Verbal-Linguistic_Short-Term_Store
+              ] ,
+              [ rdf:type owl:Restriction ;
+                owl:onProperty :defines ;
+                owl:someValuesFrom :Auditory-Verbal-Linguistic_Long-Term_Store
+              ] ,
+              [ rdf:type owl:Restriction ;
+                owl:onProperty :defines ;
+                owl:someValuesFrom :STS_Trace
+              ] ,
+              [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                      owl:onProperty :memorySystem ;
+                                      owl:someValuesFrom :Sensory_Register
+                                    ]
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :linkedToProcess ;
+                                      owl:someValuesFrom :Control_Process
+                                    ]
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :memorySystem ;
+                                      owl:someValuesFrom :Short-Term_Store
+                                    ]
+                                  ) ;
+                rdf:type owl:Class
+              ] ,
+              [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                      owl:onProperty :memorySystem ;
+                                      owl:someValuesFrom :Short-Term_Store
+                                    ]
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :linkedToProcess ;
+                                      owl:someValuesFrom :Rehearsal_Process
+                                    ]
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :memorySystem ;
+                                      owl:someValuesFrom :STS_Trace
+                                    ]
+                                  ) ;
+                rdf:type owl:Class
+              ] ,
+              [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                      owl:onProperty :memorySystem ;
+                                      owl:someValuesFrom :Short-Term_Store
+                                    ]
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :linkedToProcess ;
+                                      owl:someValuesFrom :Information_Transfer
+                                    ]
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :memorySystem ;
+                                      owl:someValuesFrom :Long-Term_Store
+                                    ]
+                                  ) ;
+                rdf:type owl:Class
+              ] ,
+              [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                      owl:onProperty :memorySystem ;
+                                      owl:someValuesFrom :Sensory_Register
+                                    ]
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :linkedToProcess ;
+                                      owl:someValuesFrom :Information_Transfer
+                                    ]
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :memorySystem ;
+                                      owl:someValuesFrom :Long-Term_Store
+                                    ]
+                                  ) ;
+                rdf:type owl:Class
+              ] ,
+              [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                      owl:onProperty :memorySystem ;
+                                      owl:someValuesFrom :Long-Term_Store
+                                    ]
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :linkedToProcess ;
+                                      owl:someValuesFrom :Coding_Process
+                                    ]
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :memorySystem ;
+                                      owl:someValuesFrom :Short-Term_Store
+                                    ]
+                                  ) ;
+                rdf:type owl:Class
+              ] ,
+            #  [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+            #                           owl:onProperty :memorySystem ;
+            #                           owl:someValuesFrom :Sensory_Register
+            #                         ]
+            #                         [ rdf:type owl:Restriction ;
+            #                           owl:onProperty :linkedToProcess ;
+            #                           owl:someValuesFrom :Information_Transfer
+            #                         ]
+            #                         [ rdf:type owl:Restriction ;
+            #                           owl:onProperty :memorySystem ;
+            #                           owl:someValuesFrom :Long-Term_Store
+            #                         ]
+            #                       ) ;
+            #    rdf:type owl:Class
+            #  ] ,
+              [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                      owl:onProperty :memorySystem ;
+                                      owl:someValuesFrom :Long-Term_Store
+                                    ]
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :linkedToProcess ;
+                                      owl:someValuesFrom :Coding_Process
+                                    ]
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :memorySystem ;
+                                      owl:someValuesFrom :Short-Term_Store
+                                    ]
+                                  ) ;
+                rdf:type owl:Class
+              ] ,
+              [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                      owl:onProperty :memorySystem ;
+                                      owl:someValuesFrom :Short-Term_Store
+                                    ]
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :linkedToProcess ;
+                                      owl:someValuesFrom :Storage
+                                    ]
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :memorySystem ;
+                                      owl:someValuesFrom :Long-Term_Store
+                                    ]
+                                  ) ;
+                rdf:type owl:Class
+              ] ,
+              [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                      owl:onProperty :memorySystem ;
+                                      owl:someValuesFrom :Short-Term_Store
+                                    ]
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :linkedToProcess ;
+                                      owl:someValuesFrom :Long-Term_Search_Process
+                                    ]
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :memorySystem ;
+                                      owl:someValuesFrom :Long-Term_Store
+                                    ]
+                                  ) ;
+                rdf:type owl:Class
+              ] ;
+            #  :defines <https://gitlab.com/ccns/neurocog/neurodataops/anc/classification/cognitive-ontology/-/raw/main/cogatlas.owl#Short-Term_Store> ;
+             :isCreatedBy <https://gitlab.com/ccns/neurocog/neurodataops/anc/classification/cognitive-ontology/-/raw/main/cogatlas.owl#Atkinson> ,
+                          <https://gitlab.com/ccns/neurocog/neurodataops/anc/classification/cognitive-ontology/-/raw/main/cogatlas.owl#Shiffrin> .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://gitlab.com/ccns/neurocog/neurodataops/anc/classification/cognitive-ontology/-/raw/main/cogatlas.owl#Atkinson
+<https://gitlab.com/ccns/neurocog/neurodataops/anc/classification/cognitive-ontology/-/raw/main/cogatlas.owl#Atkinson> rdf:type owl:NamedIndividual ,
+                                                                                                                                :Author ;
+                                                                                                                       rdfs:label "Richard Atkinson"@en ;
+                                                                                                                       skos:altLabel "Richard C. Atkinson"@en ;
+                                                                                                                       skos:altLabel "Richard Chatham Atkinson"@en .
+
+
+###  https://gitlab.com/ccns/neurocog/neurodataops/anc/classification/cognitive-ontology/-/raw/main/cogatlas.owl#Shiffrin
+<https://gitlab.com/ccns/neurocog/neurodataops/anc/classification/cognitive-ontology/-/raw/main/cogatlas.owl#Shiffrin> rdf:type owl:NamedIndividual ,
+                                                                                                                                :Author ;
+                                                                                                                       rdfs:label "Richard Shiffrin"@en ;
+                                                                                                                       skos:altLabel "Richard M. Atkinson"@en ;
+                                                                                                                       skos:altLabel "Richard Martin Shiffrin"@en .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
